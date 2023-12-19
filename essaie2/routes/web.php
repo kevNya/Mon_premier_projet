@@ -69,12 +69,17 @@ Route::post('/rendezvous/change2', [RendezVousController::class, 'update'])->nam
 
 
 
+
 Route::get('/Menu_patient', [PatientController::class, 'menu'])->middleware('auth')->name('menupatient');
 Route::match(['get', 'post'], '/listpatient', [PatientController::class, 'indexpatients'])->middleware('auth')->name('page_listpatient');
 Route::match(['get', 'post'], '/listpatientrechercher', [PatientController::class, 'rechercherpatient'])->middleware('auth')->name('page_listpatientrechercher');
 Route::match(['get', 'post'], '/createpatient', [PatientController::class, 'fristviewpat'])->middleware('auth')->name('page_createpatient');
 Route::match(['get', 'post'], '/createpatientreussi', [PatientController::class, 'nouveaupatient'])->middleware('auth')->name('page_createreussipatient');
-
+Route::get('/delete_patient', [PatientController::class, 'delete'])->middleware('auth')->name('page_supprimepatient');
+Route::match(['get', 'post'], '/delet2_patient', [PatientController::class, 'deletepatient'])->middleware('auth')->name('page_supprime2_patient');
+Route::match(['get', 'post'], '/updateview_patient', [PatientController::class, 'returnviewupdatepat'])->middleware('auth')->name('page_viewupdatpatient');
+Route::match(['get', 'post'], '/update_patient', [PatientController::class, 'rechByCode'])->middleware('auth')->name('page_updatpatient');
+Route::match(['get', 'post'], '/update_patient2', [PatientController::class, 'updatepat'])->middleware('auth')->name('page_updatpatient2');
 
 
 Route::match(['get', 'post'], '/listech', [EchantillonController::class, 'indexech'])->middleware('auth')->name('page_listech');
@@ -82,8 +87,10 @@ Route::match(['get', 'post'], '/listechrechercher', [EchantillonController::clas
 
 
 
+
 Route::match(['get', 'post'], '/listexam', [ExamController::class, 'indexexam'])->middleware('auth')->name('page_listexam');
 Route::match(['get', 'post'], '/listexamrechercher', [ExamController::class, 'rechercherexam'])->middleware('auth')->name('page_listexamrechercher');
+
 
 
 

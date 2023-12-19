@@ -5,16 +5,7 @@
 
     <div class="container col-md-4 mt-3">
         <h1>Appointment schedulling</h1>
-        @if(Session::has('success'))
-                <div  class="alert alert-success text-center  mx-auto mt-5 " role="alert">
-                        {{(Session::get('success'))}}
-                    </div>
-        @endif
-        @if(Session::has('warning'))
-                <div  class="alert alert-warning text-center col-md-4 mx-auto mt-5 " role="alert">
-                        {{(Session::get('warning'))}}
-                    </div>
-        @endif
+        @include('alert')
         <form method="POST" action="{{ route('rendezvous.store') }}">
             @csrf
 

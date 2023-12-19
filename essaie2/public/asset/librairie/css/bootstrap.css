@@ -94,7 +94,25 @@
 .changecolore:hover {
     color: rgb(0, 140, 255);
 }
+.changeupdate {
+    color: grey;
+    transition: color 0.3s ease-in-out;
+}
+.changeupdate:hover {
+    color: rgb(214, 178, 18);
+}
+.changedelete {
+    color: grey;
+    transition: color 0.3s ease-in-out;
+}
+.changedelete:hover {
+    color: rgb(216, 40, 17);
+}
 
+.custome-container {
+    width: 90%;
+    margin: 0 auto; /* Pour centrer le conteneur horizontalement */
+}
 body {
     margin: 0;
     font-family: var(--bs-body-font-family);

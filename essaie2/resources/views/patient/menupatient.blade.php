@@ -10,7 +10,7 @@
                     <div class="card-sm mb-3 text-center" >
                         <div style="height: 60px;" class="card-header ">
 
-                            <a href="" class=" text-decoration-none changecolore">
+                            <a href="{{route('page_createpatient')}}" class=" text-decoration-none changecolore">
                                 <h2 >Patient<i class="fas fa-user text-primary center fa-1x dashboard-icon"></i></h2>
 
                             </a>

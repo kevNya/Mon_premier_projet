@@ -22,7 +22,7 @@
     @if(count($rendezvous) > 0)
         <table class="table">
             <thead>
-                <tr>
+                <tr class="text-center">
                     <th>Date</th>
                     <th>Hour</th>
                     <th>Patient name</th>
@@ -33,7 +33,7 @@
             </thead>
             <tbody>
                 @foreach($rendezvous as $rdv)
-                    <tr>
+                    <tr class="text-center">
                         <td>{{ $rdv->date }}</td>
                         <td>{{ $rdv->heure }}</td>
                         <td>{{ $rdv->nom_patient }}</td>

@@ -69,11 +69,7 @@
     </div>
 
 
-    @if(Session::has('danger'))
-        <div  class="alert alert-danger text-center col-md-4 mx-auto mt-5 clignotant" role="alert">
-             {{(Session::get('danger'))}}
-        </div>
-    @endif
+    @include('alert')
 
 
 @endsection
