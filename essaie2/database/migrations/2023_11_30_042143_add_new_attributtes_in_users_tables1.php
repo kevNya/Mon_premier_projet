@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('activation_code',255)->nullable(); //champ "activation-code de type varchar 255 et à defaut null (bien différrent du défaut à chiffre zéro)
 
             $table->string('activation_token',255)->nullable();
+
         });
     }
 
@@ -28,6 +29,8 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+
+
 
 
         });

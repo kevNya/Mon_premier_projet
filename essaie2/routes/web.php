@@ -27,9 +27,8 @@ Route::get('/', [HomeController::class, 'home'])->name('page_ac');
 
 
 Route::get('/about', [HomeController::class, 'about'])->name('page_about');
-Route::match(['get', 'post'], '/dashboard', [HomeController::class, 'dashboard'])
-->middleware('auth')//tant que l'utilisateur n'est pas connecté il va rester sur la page login car il n'est pas authentifier d'où le middleware('auth)
-->name('page_dashboard');
+Route::match(['get', 'post'], '/dashboard', [HomeController::class, 'dashboard'])//tant que l'utilisateur n'est pas connecté il va rester sur la page login car il n'est pas authentifier d'où le middleware('auth)
+->middleware('auth')->name('page_dashboard');
 /*Route::get('/about', function () {
     return view('home.about');
 })->name('page_about');*/
@@ -68,9 +67,9 @@ Route::match(['get', 'post'], '/rendezvous/change', [RendezVousController::class
 Route::post('/rendezvous/change2', [RendezVousController::class, 'update'])->name('page_modifierrdv2');
 
 
+Route::middleware(['auth', 'role:admin'])->group(function () {
 
-
-Route::get('/Menu_patient', [PatientController::class, 'menu'])->middleware('auth')->name('menupatient');
+Route::get('/Menu_patient', [PatientController::class, 'menu'])->name('menupatient');
 Route::match(['get', 'post'], '/listpatient', [PatientController::class, 'indexpatients'])->middleware('auth')->name('page_listpatient');
 Route::match(['get', 'post'], '/listpatientrechercher', [PatientController::class, 'rechercherpatient'])->middleware('auth')->name('page_listpatientrechercher');
 Route::match(['get', 'post'], '/createpatient', [PatientController::class, 'fristviewpat'])->middleware('auth')->name('page_createpatient');
@@ -80,6 +79,10 @@ Route::match(['get', 'post'], '/delet2_patient', [PatientController::class, 'del
 Route::match(['get', 'post'], '/updateview_patient', [PatientController::class, 'returnviewupdatepat'])->middleware('auth')->name('page_viewupdatpatient');
 Route::match(['get', 'post'], '/update_patient', [PatientController::class, 'rechByCode'])->middleware('auth')->name('page_updatpatient');
 Route::match(['get', 'post'], '/update_patient2', [PatientController::class, 'updatepat'])->middleware('auth')->name('page_updatpatient2');
+
+});
+
+
 
 
 Route::match(['get', 'post'], '/listech', [EchantillonController::class, 'indexech'])->middleware('auth')->name('page_listech');
@@ -100,6 +103,7 @@ Route::match(['get', 'post'], '/listresultrechercher', [ResultController::class,
 
 // Ajoutez d'autres routes selon vos besoins
 
-/*Route::get('/listech', function () {
-    return view('echantillechantillonliston.');
-})->name('page_listech');*/
+Route::get('/listechk', function () {
+    $user=\App\Models\User::first();
+    dd($user->userrole()->where('name','accueil')->exists());
+})->name('page_listech');

@@ -22,5 +22,6 @@
 
         {{--mon fichier qui contient le js de bootstrap--}}
         @include('nav.javascript')
+
     </body>
 </html>

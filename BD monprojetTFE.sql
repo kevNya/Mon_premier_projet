@@ -119,3 +119,16 @@ CREATE TABLE Services_Personnel (
     FOREIGN KEY (service_id) REFERENCES Services(service_id),
     FOREIGN KEY (personnel_id) REFERENCES Personnel(personnel_id)
 );
+
+CREATE TABLE role (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(255),
+	id_user bigint(20) unsigned,
+	FOREIGN KEY (id_user) REFERENCES users(id)
+    
+);
+
+
+insert into role (name,id_user) values ('admin','97');
+insert into role (name,id_user) values ('accueil','97');
+insert into role (name,id_user) values ('accueil','89');

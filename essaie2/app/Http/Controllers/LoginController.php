@@ -95,6 +95,7 @@ class LoginController extends Controller
     public function userchecker(){//vérifier si l'utilisateur a déjà activer son compte ou pas
         $activ_tok_userchek =Auth::user()->activation_token;
         $is_veref_userchek =Auth::user()->is_verified;
+        $membre=Auth::user()->membre;
         $name_userchek= Auth::user()->name;
 
         if($is_veref_userchek != 1){
@@ -103,7 +104,11 @@ class LoginController extends Controller
                             ->with('warning', 'Hi '.$name_userchek. ' We send you an email, please take your code and activate your account');
         }
         else {
+            if($membre=='1')
             return redirect()->route('page_dashboard');
+            else{
+                return redirect()->route('page_modifierrdv');
+            }
         }
     }
      /*public function register(){

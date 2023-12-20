@@ -18,3 +18,8 @@
                         {{(Session::get('rendezvousData'))}}
                     </div>
                     @endif
+                    @if(Session::has('problem'))
+                    <div  class="alert alert-danger text-center col-md-4 mx-auto mt-5 clignotant" role="alert">
+                        {{(Session::get('problem'))}}
+                    </div>
+                    @endif
