@@ -46,7 +46,7 @@ $("#register-patient").click(function () {
             $("#prenom").addClass("is-valid");
             $("#prenom").removeClass("is-invalid");
             $("#error-prenom").text("");
-            console.log("fdsf");
+
             if (age >= 0 && age <= 130) {
                 $("#age").addClass("is-valid");
                 $("#age").removeClass("is-invalid");
@@ -154,3 +154,18 @@ $("#agreed").change(function () {
         $("#error-agreed").text("   Please check the box");
     }
 });
+
+/*$("#examen").blur(function () {
+    $examen = $("#examen").val();
+    if ((examen = /^[A-Z]+(?:,[A-Z]+)*$/.test(examen))) {
+        $("#examen").removeClass("is-invalid");
+        $("#examen").addClass("is-valid");
+        $("#error-examen").text("");
+    } else {
+        $("#examen").addClass("is-invalid");
+        $("#examen").removeClass("is-valid");
+        $("#error-examen").text(
+            "The format for this field is XXX,XXX,XXX(no space)"
+        );
+    }
+});*/

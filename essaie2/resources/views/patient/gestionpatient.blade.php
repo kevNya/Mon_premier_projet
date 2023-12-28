@@ -1,6 +1,6 @@
 @extends('welcome')
 
-@section('title', 'Register')
+@section('title', 'Manage_patient')
 
 @section('content')
 
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-12">
                         <label for="emailpat" class="form-label">Email adresse <i class="fas fa-envelope fa-1x"></i></label>
-                        <input type="emailpat" class="form-control" id="emailpat" name="emailpat" value="{{old('emailpat')}}" required autocomplete="emailpat" url-emailpatExist="{{route('page_existEmail')}}" token="{{ csrf_token() }}" >
+                        <input type="email" class="form-control" id="emailpat" name="emailpat" value="{{old('emailpat')}}" required autocomplete="emailpat" url-emailpatExist="{{route('page_existEmail')}}" token="{{ csrf_token() }}" >
                         <small class="text-danger" id="error-emailpat"></small>
                     </div>
                     <div class="col-md-12">

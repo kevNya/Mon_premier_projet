@@ -38,7 +38,7 @@ insert into Echantillons (echantillon_id, examen, patient_id, Date_h_reception, 
 insert into Echantillons (echantillon_id, examen, patient_id, Date_h_reception, commentaire) values ('12002', 'NFS,GS', '04','2023-04-30 08:09:15',NULL);
 insert into Echantillons (echantillon_id, examen, patient_id, Date_h_reception, commentaire) values ('12003', 'GLYCEMIE,WIDAL', '02','2023-04-30 09:09:15','glycémie urgente!');
 insert into Echantillons (echantillon_id, examen, patient_id, Date_h_reception, commentaire) values ('12004', 'VIH', '02','2023-04-30 09:09:15',NULL);
-
+insert into Echantillons (echantillon_id, examen, patient_id, Date_h_reception, commentaire) values ('12005', 'ELECTROPHORESE', '03','2023-04-30 09:09',NULL);
 -- Table des examens
 CREATE TABLE Examens (
     examen_id INT PRIMARY KEY,
@@ -57,6 +57,12 @@ insert into Examens (examen_id, echantillon_id, nom_examen, Date_h_manipulation,
 insert into Examens (examen_id, echantillon_id, nom_examen, Date_h_manipulation, jour, commentaire) values ('32004', '12003', 'GLYCEMIE','2023-04-30 10:09:15','2023-04-30', NULL);
 insert into Examens (examen_id, echantillon_id, nom_examen, Date_h_manipulation, jour, commentaire) values ('32005', '12003', 'WIDAL','2023-04-30 10:09:15','2023-04-30', NULL);
 
+
+--trigger qui met la date du jour directement après une injection 
+CREATE TRIGGER before_insert_examens
+BEFORE INSERT ON examens
+FOR EACH ROW
+SET NEW.jour = IFNULL(NEW.jour, CURDATE());
 
 -- Table des résultats des examens
 CREATE TABLE Resultats (

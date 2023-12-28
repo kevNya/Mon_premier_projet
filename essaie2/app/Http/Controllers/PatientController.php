@@ -173,7 +173,7 @@ class PatientController extends Controller
                 'adresse' => 'required|string|max:50',
                 'emailpat' => 'required|email|max:100',
 
-                ]);
+            ]);
 
             $updatepatient->update($validatedData);
             return redirect()->route('page_viewupdatpatient')->with('success', 'The patient : '.$updatepatient->prenom.' '.$updatepatient->nom.'   has been modified!' );

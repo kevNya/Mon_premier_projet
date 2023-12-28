@@ -38,7 +38,7 @@ insert into Echantillons (echantillon_id, examen, patient_id, Date_h_reception, 
 insert into Echantillons (echantillon_id, examen, patient_id, Date_h_reception, commentaire) values ('12002', 'NFS,GS', '04','2023-04-30 08:09:15',NULL);
 insert into Echantillons (echantillon_id, examen, patient_id, Date_h_reception, commentaire) values ('12003', 'GLYCEMIE,WIDAL', '02','2023-04-30 09:09:15','glycémie urgente!');
 insert into Echantillons (echantillon_id, examen, patient_id, Date_h_reception, commentaire) values ('12004', 'VIH', '02','2023-04-30 09:09:15',NULL);
-
+insert into Echantillons (echantillon_id, examen, patient_id, Date_h_reception, commentaire) values ('12005', 'ELECTROPHORESE', '03','2023-04-30 09:09',NULL);
 -- Table des examens
 CREATE TABLE Examens (
     examen_id INT PRIMARY KEY,
@@ -123,7 +123,7 @@ CREATE TABLE Services_Personnel (
 CREATE TABLE role (
     id INT AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(255),
-	id_user bigint unsigned(20),
+	id_user bigint(20) unsigned,
 	FOREIGN KEY (id_user) REFERENCES users(id)
     
 );

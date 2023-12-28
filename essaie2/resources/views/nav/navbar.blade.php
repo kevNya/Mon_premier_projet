@@ -73,5 +73,5 @@
           </nav>
         @endguest
 
-      </div>
+    </div>
   </nav>

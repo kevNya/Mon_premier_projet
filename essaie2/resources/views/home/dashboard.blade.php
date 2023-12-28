@@ -86,13 +86,13 @@
                 <div class="card">
                     <div class="card-header text-center">
 
-                        <a href="" class=" text-decoration-none changecolore">
-                            <h2>Member Staff</h2>
-                            <i class="fas fa-user fa-5x dashboard-icon"></i>
+                        <a href="{{route('page_leschoix')}}" class=" text-decoration-none changecolore">
+                            <h2>Admin</h2>
+                            <i class="fas fa-shield-alt fa-5x dashboard-icon"></i>
                         </a>
                     </div>
                     <div class="card-body d-flex justify-content-between">
-                        <p>Would you want to contact your coworker? </p>
+                        <p>Access management is done here </p>
                         <i class="fas text-end fa-chart-bar"></i>
                     </div>
                 </div>

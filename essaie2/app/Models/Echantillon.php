@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Echantillon extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $table = 'echantillons';
     protected $primaryKey = 'echantillon_id';
     protected $fillable = [
@@ -27,7 +28,7 @@ class Echantillon extends Model
 
     public function echexam() // Je défini ici que mon échantillon peut avoir plusieurs examens
     {
-        return $this->hasMany(Examen::class);
+        return $this->hasMany(Examen::class,'echantillon_id');
     }
 
 }

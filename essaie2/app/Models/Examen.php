@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Examen extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $table = 'examens';
     protected $primaryKey = 'examen_id';
     protected $fillable = [
@@ -17,6 +18,7 @@ class Examen extends Model
         'Date_h_manipulation',
         'commentaire',
         'jour',
+
 
     ];
 
@@ -28,6 +30,7 @@ class Examen extends Model
     public function resultat() {
         return $this->hasOne(Result::class);
     }
+
 
 
 }

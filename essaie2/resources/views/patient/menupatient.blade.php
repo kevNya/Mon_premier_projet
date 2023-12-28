@@ -26,7 +26,7 @@
                     <div class="card-sm mb-3 text-center" >
                         <div style="height: 60px;" class="card-header ">
 
-                            <a href="" class=" text-decoration-none changecolore">
+                            <a href="{{route('page_afficheech')}}" class=" text-decoration-none changecolore">
                                 <h2 >Sample<i class="fas fa-vial center text-danger fa-1x dashboard-icon"></i></h2>
 
                             </a>
@@ -41,7 +41,7 @@
                     <div class="card-sm mb-3 text-center" >
                         <div style="height: 60px;" class="card-header ">
 
-                            <a href="" class=" text-decoration-none changecolore">
+                            <a href="{{route('page_affichexam')}}" class=" text-decoration-none changecolore">
                                 <h2 >Exam<i class="fas fa-microscope text-success center fa-1x dashboard-icon"></i></h2>
 
                             </a>
@@ -56,7 +56,7 @@
                     <div class="card-sm mb-3 text-center" >
                         <div style="height: 60px;" class="card-header ">
 
-                            <a href="" class=" text-decoration-none changecolore">
+                            <a href="{{route('page_afficheresult')}}" class=" text-decoration-none changecolore">
                                 <h2 >Results<i class="fas fa-folder text-warning center fa-1x dashboard-icon"></i></h2>
 
                             </a>
@@ -125,6 +125,21 @@
                         </div>
                         <div class="text-center">
                             <p>Find all the results </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10 mt-5" >
+                    <div class="card-sm mb-3 text-center" >
+                        <div style="height: 60px;" class="card-header ">
+
+                            <a href="{{route('page_rechresult_patient')}}" class=" text-decoration-none changecolore">
+                                <h2 >Download Results <i class="fas fa-file text-dark center fa-1x dashboard-icon"></i></h2>
+
+                            </a>
+                        </div>
+                        <div class="text-center">
+                            <p>Find all the results of one patient</p>
 
                         </div>
                     </div>

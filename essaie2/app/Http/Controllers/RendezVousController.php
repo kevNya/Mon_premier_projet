@@ -15,12 +15,15 @@ class RendezVousController extends Controller
         $this->request = $request;
     }
     //
+
     public function indexall() //récupération des rendez-vous par ordre de date croissante
     {
 
         $rendezvous = RendezVous::orderBy('date', 'asc')->orderBy('heure', 'asc')->get();
         return view('rdv.listerdv', compact('rendezvous'));
     }
+
+
     public function index() //récupération des rendez-vous par jour
     {
         $datesys= new \DateTimeImmutable();

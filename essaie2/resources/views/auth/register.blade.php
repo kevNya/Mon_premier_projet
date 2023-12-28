@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 ">
-                <form method="POST" action="{{route('register')}}" class="row g-4" id="form-register">
+                <form method="POST" action="{{route('register')}}" class="row g-4" id="form-registerss">
                     @csrf
                     <div class="col-md-6">
                         <label for="firstname" class="form-label">First name</label>
@@ -44,7 +44,7 @@
                        </div>
                     </div>
                     <div class="mb-6 mt-5">
-                        <button  type="button" class="btn btn-primary" id="register-user">Register</button>
+                        <button  type="submit" class="btn btn-primary" id="register-user">Register</button>
 
                     </div>
                     <p class="mt-3 mb-10 text-muted text-center">Already have an account? <a href="{{route('login')}}" class="">click here </a> to connect</p>

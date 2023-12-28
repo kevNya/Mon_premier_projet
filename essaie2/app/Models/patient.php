@@ -25,6 +25,6 @@ class patient extends Model
     //ci j'ai ma méthode qui défini les relations entre mes tables
     public function patientech()//je définis que mon patient peut avoir plusieurs échantillons
     {
-        return $this->hasMany(Echantillon::class);
+        return $this->hasMany(Echantillon::class,'patient_id');
     }
 }

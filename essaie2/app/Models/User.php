@@ -28,6 +28,7 @@ class User extends Authenticatable
         'is_verified',
         'activation_code',
         'activation_token',
+        'membre',
     ];
 
     /**
