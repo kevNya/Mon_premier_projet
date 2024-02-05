@@ -36,11 +36,12 @@
 
 
     </div>
- <div class="container col-md-4 mt-3 d-flex justify-content-between">
+        <div class="container col-md-4 mt-3 d-flex justify-content-between">
             <a href="{{route('page_modifierrdv')}}">Change your appointment</a>
             <a class="text-end" href="{{route('page_suppressionrdv')}}" >delete your appointment</a>
         </div>
-
+        <div class="form-group mt-4">
+        </div>
 
 
 @endsection

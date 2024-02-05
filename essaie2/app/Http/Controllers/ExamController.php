@@ -17,7 +17,7 @@ class ExamController extends Controller
 
     public function indexexam()
     {
-        $lesexams= Examen::orderBy('Date_h_manipulation','asc')->with('examenech')->get();
+        $lesexams= Examen::orderBy('Date_h_manipulation','desc')->with('examenech')->get();
         return view('exam.examlist',compact('lesexams'));
     }
 

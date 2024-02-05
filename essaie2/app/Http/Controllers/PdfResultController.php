@@ -52,19 +52,28 @@ class PdfResultController extends Controller
         ->orderByDesc('resultats.Date_h_resultat')
         ->get();
 
-        // Utilisez le nom du patient du premier résultat dans le nom du fichier PDF
-        $nomPatient = $lesresults->first()->nom_patient ?? 'UnknownPatient';
-        // Utilisez 'UnknownPatient' si le nom du patient n'est pas trouvé
+        if($lesresults->isEmpty())
+        {
+             return redirect()->route('page_rechresult_patient')->with('danger', 'this patient does not have results');
 
-        $pdf = PDF::loadView('result.pdf', compact('lesresults'))->setOptions([
-        'isHtml5ParserEnabled' => true,
-        'isPhpEnabled' => true,
-    ]);
+        }else
+        {
 
-    // Utilisez le nom du patient dans le nom du fichier PDF
-        $nomFichier = $nomPatient . '_results.pdf';
+            // Utilisez le nom du patient du premier résultat dans le nom du fichier PDF
+            $nomPatient = $lesresults->first()->nom_patient ?? 'UnknownPatient';
+            
 
-        return $pdf->stream($nomFichier);
+            $pdf = PDF::loadView('result.pdf', compact('lesresults'))->setOptions([
+            'isHtml5ParserEnabled' => true,
+            'isPhpEnabled' => true,
+            ]);
+
+        // Utilisez le nom du patient dans le nom du fichier PDF
+            $nomFichier = $nomPatient . '_results.pdf';
+
+            return $pdf->stream($nomFichier);
+        }
+
     }
 
     public function rechresultpatients()

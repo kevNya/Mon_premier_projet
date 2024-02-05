@@ -22,7 +22,8 @@
 
                     <div class="col-md-12">
                         <label for="email" class="form-label">Email address <i class="fas fa-envelope fa-1x"></i></label>
-                        <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}" required autocomplete="email" url-emailExist="{{route('page_existEmail')}}" token="{{ csrf_token() }}" >
+                        <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}" required autocomplete="email"
+                        url_emailExist="{{route('page_existEmail')}}" token="{{ csrf_token() }}" >
                         <small class="text-danger" id="error-email"></small>
                     </div>
                     <div class="col-md-6">
@@ -44,7 +45,7 @@
                        </div>
                     </div>
                     <div class="mb-6 mt-5">
-                        <button  type="submit" class="btn btn-primary" id="register-user">Register</button>
+                        <button  type="button" class="btn btn-primary" id="register-user">Register</button>
 
                     </div>
                     <p class="mt-3 mb-10 text-muted text-center">Already have an account? <a href="{{route('login')}}" class="">click here </a> to connect</p>

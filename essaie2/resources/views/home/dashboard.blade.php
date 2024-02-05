@@ -4,6 +4,11 @@
 @section('title', 'Dashboard')
 @section('content')
     <h1 style="margin-left: 1%">Dashboard</h1>
+    @php
+        $userRoles = auth()->user()->userrole; // on défini une variable dans laquelle on va mettre les différents roles de l'utilisateurs
+    @endphp
+
+
     <div class="container">
 
         <div class="row">
@@ -82,21 +87,48 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mt-5">
-                <div class="card">
-                    <div class="card-header text-center">
+            @if($userRoles->count() > 0)
+                @php $adminFound = false; @endphp
+                @foreach($userRoles as $role)
+                    @if($role->name == 'admin')
+                            <div class="col-md-4 mt-5">
+                                <div class="card">
+                                    <div class="card-header text-center">
 
-                        <a href="{{route('page_leschoix')}}" class=" text-decoration-none changecolore">
-                            <h2>Admin</h2>
-                            <i class="fas fa-shield-alt fa-5x dashboard-icon"></i>
-                        </a>
+                                        <a href="{{route('page_leschoix')}}" class=" text-decoration-none changecolore">
+                                            <h2>Admin</h2>
+
+                                            <i class="fas fa-shield-alt fa-5x dashboard-icon"></i>
+                                        </a>
+                                    </div>
+                                <div class="card-body d-flex justify-content-between">
+                                    <p>Access management is done here </p>
+                                    <i class="fas text-end fa-chart-bar"></i>
+                                </div>
+                        </div>
+                        @php $adminFound = true; @endphp
+                    @endif
+                @endforeach
+                @if(!$adminFound)
+                    <div class="col-md-4 mt-5">
+                        <div class="card">
+                            <div class="card-header text-center">
+
+                                <a href="{{route('page_leschoix')}}" class=" text-decoration-none text-secondary">
+                                    <h2>Admin</h2>
+
+                                    <i class="fas fa-lock fa-5x dashboard-icone"></i>
+                                </a>
+                            </div>
+                        <div class="card-body d-flex justify-content-between">
+                            <p>No Access </p>
+                            <i class="fas text-end fa-chart-bar"></i>
+                        </div>
                     </div>
-                    <div class="card-body d-flex justify-content-between">
-                        <p>Access management is done here </p>
-                        <i class="fas text-end fa-chart-bar"></i>
-                    </div>
-                </div>
-            </div>
+                @endif
+            @endif
         </div>
     </div>
+
+
 @endsection

@@ -28,12 +28,14 @@ class LoginController extends Controller
                         ->first();//ici on prend juste le premier on a pas besoin de tout
 
         $response = "";
-        ($user) ? $response = "exist" : $response = "not_exist";/*on aurait pu faire if($user){$response="exist";} else{$response="not_exist";} c'est la même chose*/
+        if($user){$response="exist";} else{$response="not_exist";} /*($user) ? $response = "exist" : $response = "not_exist";on aurait pu faire if($user){$response="exist";} else{$response="not_exist";} c'est la même chose*/
 
         return response()->json([
 
-            'response' =>$response
+            'lareponse' => $response, // Utilisez 'lareponse' ici
+
         ]);
+
     }
 
     public function ActivationCodefunc($token){
@@ -42,7 +44,6 @@ class LoginController extends Controller
             return redirect()->route('login');
         }
         if($this->request->isMethod('post')){//si la request est en mode post
-
             $code =$instantuser->activation_code; //on prend le code présent dans la base de données
             $act_cod_copicol = $this->request->input('activcod');//ici c'est le code que l'utilisateur à copier coller
 
@@ -107,7 +108,7 @@ class LoginController extends Controller
             if($membre=='1')
             return redirect()->route('page_dashboard');
             else{
-                return redirect()->route('page_modifierrdv');
+                return redirect()->route('page_about');
             }
         }
     }

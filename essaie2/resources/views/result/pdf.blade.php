@@ -5,16 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .footer-text {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            margin: 20px; /* Ajoutez une marge pour plus d'espace autour du texte */
+            color: #333; /* Couleur du texte */
+            font-size: 14px; /* Taille de la police */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        /* Première colonne (1/4 de la largeur totale) */
+        td:nth-child(1) {
+            width: 25%;
+        }
+
+        /* Deuxième colonne (3/4 de la largeur totale) */
+        td:nth-child(2) {
+            width: 75%;
+        }
+    </style>
 </head>
 <body>
-    <div class="row d-flex justify-content-between">
-        <div class="col-md-6">
+    {{--}}<div class="row ">
+        <div class="col-md-12 text-center">
         <h1>LABX-Zed</h1>
         </div>
         <div class="col-md-2 text-end mt-3 mr-3">
 
         </div>
-    </div>
+    </div>--}}
 
     <div class="container mt-5">
         <div class="row">
@@ -95,12 +124,12 @@
             <br>
             <br>
             <br>
+
             <br>
             <br>
             <br>
             <br>
-            <br>
-            <div class="col-md-12 mt-5" style="float: right;">
+            <div class="footer-text">
                 <strong><p> Fait à:______________ le__/___/_______signature               </p></strong>
             </div>
     </div>

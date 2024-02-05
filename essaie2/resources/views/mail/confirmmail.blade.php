@@ -3,6 +3,7 @@
     <br>you can confirm your account there </h1>
 
 <p> Your activation code is : {{ $activation1_code }}
+    <p> Please used this token : {{ $activation1_token }}
     <br>
     <br> you can also : <a href=""> click here</a>
 </p>

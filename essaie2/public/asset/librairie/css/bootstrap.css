@@ -78,6 +78,12 @@
         scroll-behavior: smooth;
     }
 }
+.dashboard-icone {
+    width: 3cm;
+    height: 3cm;
+    color: grey;
+    transition: color 0.3s ease-in-out;
+}
 .dashboard-icon {
     width: 3cm;
     height: 3cm;

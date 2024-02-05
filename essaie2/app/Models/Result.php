@@ -18,7 +18,7 @@ class Result extends Model
         'description',
     ];
 
-    public function resultexam()
+    public function resultexam() //un resultat appartient à un examen
     {
         return $this->belongsTo(Examen::class,'id_examen');
     }

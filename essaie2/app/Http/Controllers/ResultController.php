@@ -22,7 +22,7 @@ class ResultController extends Controller
     }
     public function rechercherresult()
     {
-        $code = $this->request->input('recherc');
+        $code = $this->request->input('recherc'); //récupération du.0. code entrer via l'utilisateur
         $lesresultsrech= Result::where('resultat_id',$code)->get();
         return view('result.resultrechearch',compact('lesresultsrech'));
     }
@@ -35,14 +35,14 @@ class ResultController extends Controller
     public function resultcreer(Request $request)
     {
 
-        $exam = $this->request->input('examen');
-        $validateData = $request->validate([
+        $exam = $this->request->input('examen');//code exam entrer par l'utilisateur
+        $validateData = $request->validate([//comment les champs doivent être remplis
             'id_examen'=>'required|numeric',
             'Date_h_resultat'=> 'required|date_format:Y-m-d\TH:i',
             'description'=>'required|string',
 
         ]);
-        $data = $request->only([
+        $data = $request->only([//dans la base de données on va spécifier les collones qui seront nécessaire car il y'a plus de colonnes
             'id_examen',
             'Date_h_resultat',
             'description',
@@ -50,7 +50,7 @@ class ResultController extends Controller
         ]);
         try
         {
-            $resultat= Result::create($data);
+            $resultat= Result::create($data); //creation de la nouvelle insertion
 
 
             return redirect()->route('page_afficheresult')->with('success', 'The result with code '.$resultat->resultat_id.' has been created succesfuly!');
@@ -67,13 +67,13 @@ class ResultController extends Controller
 
     public function supprimeresult()
     {
-        $codesupresult= $this->request->input('resultat_id');
-        $codexam= $this->request->input('id_examen');
+        $codesupresult= $this->request->input('resultat_id');//R2CUP2RATION DU CODE du résultat
+        $codexam= $this->request->input('id_examen');// récupération du code de l'examen correspondant au résultat
 
 
         $supresult = Result::where('resultat_id',$codesupresult)
                           ->where('id_examen',$codexam)
-                          ->first();
+                          ->first();// recherche du premier résultat correspondant  aux différents paramètres enter
         if (!$supresult) {
                             // Gérer le cas où le patient n'est pas trouvé
             return redirect()->route('page_affichedeleteresult')->with('danger', 'The Exam and result code do not match please retry.');
@@ -83,7 +83,7 @@ class ResultController extends Controller
 
             $supresult->delete();
             return redirect()->route('page_affichedeleteresult')->with('success', 'Deletion was successful');
-        }catch(\Illuminate\Database\QueryException $e)
+        }catch(\Illuminate\Database\QueryException $e)//erreur liée à une erreur de requête dans la base de données
         {
             return redirect()->route('page_affichedeleteresult')->with('danger', 'please check yours datas');
         }

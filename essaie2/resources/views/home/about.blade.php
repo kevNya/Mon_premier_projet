@@ -2,5 +2,5 @@
 
 @section('title', 'About')
 @section('content')
-    <h1>about</h1>
+    <h1>PAGE POUR LES PATIENTS</h1>
 @endsection

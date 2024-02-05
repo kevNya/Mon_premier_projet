@@ -4,7 +4,7 @@
 @section('content')
     <h1 style=" margin-left: 1%">Menu</h1>
     <div class="container text-center">
-        @include('alert')
+
         <div class="row mt-5">
             <div class="col">
                 <div class="col-md-10" >

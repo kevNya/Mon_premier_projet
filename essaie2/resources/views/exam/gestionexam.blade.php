@@ -82,7 +82,7 @@
                         <div style="height: 60px;" class="card-header ">
 
                             <a href="{{route('page_afficheupdateexam')}}" class=" text-decoration-none changeupdate">
-                                <h2 >Update<i class="fas fa-pencil-alt text-warning center fa-1x dashboard-icon"></i></h2>
+                                <h2 >Edit<i class="fas fa-pencil-alt text-warning center fa-1x dashboard-icon"></i></h2>
 
                             </a>
                         </div>

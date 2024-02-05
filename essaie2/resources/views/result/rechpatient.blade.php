@@ -28,7 +28,9 @@
                         </form>
                 </div>
             </div>
+        @include('alert')
         </div>
+
     </div>
 
 @endsection

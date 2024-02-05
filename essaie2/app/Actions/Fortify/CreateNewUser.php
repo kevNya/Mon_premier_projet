@@ -20,6 +20,7 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input)
     {
+        //VOICI LE CODE QUI PERMET DE VERIFIER LES CHAMPS QUI ON TRAIT A LENREGISTREMENT COMME NOUS LAVONS FAIT AVEC LE FICHIER JAVASCRIPT
        /* Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => [
@@ -44,18 +45,18 @@ class CreateNewUser implements CreatesNewUsers
 
         $name= $input['firstname'] . ' '.$input['lastname'];
 
-        $emailsend= new EmailService;
+        $emailsend= new EmailService;//instanciation de la classe EmailService
         $subject= "Active your Account";
 
         $message= view('mail.confirmmail')
                 ->with([
                         'name'=> $name,
                         'activation1_code'=>$activ_code,
-                        'activation_token'=>$activ_token,
+                        'activation1_token'=>$activ_token,
                 ]);//on veut que notre message soit une petite page html avec un peu de css et on va recupérer les valeurs dans le wich
 
 
-        //$emailsend->sendEmail($subject, $email, $name, true, $message);
+        $emailsend->sendEmail($subject, $email, $name, true, $message);//l'envoie du mail est fait ici
 
         return User::create([
             'name' =>$name, // ce <<'name'>> ci correspond au champ name dans notre table users de la bd, pareil pour tous ceux qui sont avant la flèche dans cette fonction

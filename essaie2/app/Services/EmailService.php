@@ -10,12 +10,13 @@ class EmailService{
     protected $port;
     protected $host;
 
-    function __construct(){
-        $this->app_name= config('app.name');
-        $this->host= config('app.mail_host');
-        $this->port= config('app.mail_port');
-        $this->username= config('app.mail_username');
-        $this->password= config('app.mail_password');
+    function __construct(){//ces variables se trouvent à la base dans le fichiers "env" donc on aurait pu juste mettre <<env('APP_NAME', ''),>> par exemple
+
+        $this->app_name= config('app.name');//'name' => env('APP_NAME', ''),
+        $this->host= config('app.mail_host');//'mail_host' => env('MAIL_HOST', ''),
+        $this->port=  env('MAIL_PORT'); //exemple avec juste env
+        $this->username= config('app.mail_username');//'mail_username' => env('MAIL_USERNAME', ''),
+        $this->password= config('app.mail_password');//'mail_password' => env('MAIL_PASSWORD', ''),
     }
 
     public function sendEmail($subject, $emailUser, $nameUser, $isHtml, $message){

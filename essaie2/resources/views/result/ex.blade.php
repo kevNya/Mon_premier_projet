@@ -72,6 +72,8 @@
         </div>
             <br>
             <br>
+            <br>
+            <br>
             <div class="col-md-12 text-end mt-5">
                 <strong><p> Fait à:______________ le__/___/_______               signature: </p></strong>
             </div>

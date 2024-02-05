@@ -27,9 +27,11 @@
             <a class="nav-link  @if (Request::route()->getName() == 'rendezvous.create') active @endif " href="{{route('rendezvous.create')}}">Appointment <i class="fas fa-calendar fa-1x"></i></a>
           </li>
           @auth
-            <li class="nav-item ">
-            <a class="nav-link  @if (Request::route()->getName() == 'page_dashboard') active @endif " href="{{route('page_dashboard')}}">Dashboard <i class="fas fa-list fa-1x"></i></a>
-            </li>
+            @if(auth()->user()->membre == 1){{--IL APPARAIT SI ET SEULEMENT L'UTILISATEUR A la valeur 1 dans la table membre--}}
+                <li class="nav-item ">
+                <a class="nav-link  @if (Request::route()->getName() == 'page_dashboard') active @endif " href="{{route('page_dashboard')}}">Dashboard <i class="fas fa-list fa-1x"></i></a>
+                </li>
+            @endif
           @endauth
 
 
