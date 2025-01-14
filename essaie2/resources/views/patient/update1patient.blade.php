@@ -41,22 +41,22 @@
                         <small class="text-danger" id="sdf"></small>
                     </div>
                     <div class="col-md-6 text-muted">
-                        <label for="sexea" class="form-label">Sexea <i class="fas fa-venus fa-1x"></i><i class="fas fa-mars fa-1x"></i></label>
+                        <label for="sexea" class="form-label">Sexe <i class="fas fa-venus fa-1x"></i><i class="fas fa-mars fa-1x"></i></label>
                         <input type="text" class="form-control"  value="{{old('sexea')}}" required autocomplete="sexea" readonly>
                         <small class="text-danger" id="error-sexea"></small>
                     </div>
                     <div class="col-md-9 text-muted">
-                        <label for="telephonea" class="form-label">TelePhonea number <i class="fas fa-telephonea fa-1x"></i></label>
+                        <label for="telephonea" class="form-label">TelePhone number <i class="fas fa-telephonea fa-1x"></i></label>
                         <input type="number" class="form-control"  value="{{old('telephonea')}}" required autocomplete="telephonea" readonly>
                         <small class="text-danger" id="error-telephonea"></small>
                     </div>
                     <div class="col-md-12 text-muted">
-                        <label for="emailpata" class="form-label">Email adressea <i class="fas fa-envelope fa-1x"></i></label>
+                        <label for="emailpata" class="form-label">Email adresse <i class="fas fa-envelope fa-1x"></i></label>
                         <input type="emailpata" class="form-control"  value="{{old('emailpata')}}" required autocomplete="emailpata" readonly >
                         <small class="text-danger" id="error-emailpata"></small>
                     </div>
                     <div class="col-md-12 text-muted">
-                        <label for="adressea" class="form-label">adressea <i class="fas fa-map-marker fa-1x"></i></label>
+                        <label for="adressea" class="form-label">adresse <i class="fas fa-map-marker fa-1x"></i></label>
                         <input  type="text" class="form-control"  value="{{old('adressea')}}" required autocomplete="adressea" readonly>
                         <small class="text-danger" id="error-adressea"></small>
                     </div>

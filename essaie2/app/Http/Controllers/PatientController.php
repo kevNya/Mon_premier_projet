@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\patient;
+use App\Models\Materiel;
+
 
 class PatientController extends Controller
 {
@@ -188,4 +190,79 @@ class PatientController extends Controller
     }
 
 
+
+
+
+    public function voime(){
+        return view('home.about');
+    }
+    public function rechByClick($id)
+    {
+        // $codepat= $request->input($fieldName);
+        $dataMat= Materiel::where('id',$id)->first();
+
+        if ($dataMat) {
+            return view('materiel.detailsMateriel', compact('dataMat'));
+        } else {
+            // Gestion du cas où le patient n'est pas trouvé
+            return redirect()->back()->with('danger', 'not found.');
+        }
+    }
+    public function UpdateByClick($id)
+    {
+        // $codepat= $request->input($fieldName);
+        $dataMat= Materiel::where('id',$id)->first();
+
+        if ($dataMat) {
+            return view('materiel.updateMateriel', compact('dataMat'));
+        } else {
+            // Gestion du cas où le patient n'est pas trouvé
+            return redirect()->back()->with('danger', 'not found.');
+        }
+    }
+    public function allmaterials()
+    {
+        // $codepat= $request->input($fieldName);
+        // s
+        $dataMat = Materiel::orderBy('id', 'desc')->get();
+        if ($dataMat) {
+            return view('materiel.materiel', compact('dataMat'));
+        } else {
+            // Gestion du cas où le patient n'est pas trouvé
+            return redirect()->back()->with('danger', 'not found.');
+        }
+    }
+    public function updateMateriel(Request $request)
+    {
+        //je récupère l'id que l'utilisateur va entrer
+        $cod=$this->request->input('nom');// je récupère lecode
+        $qtite_stock=$this->request->input('qtite_stock');
+
+
+        try{
+            $updatemat = Materiel::where('nom',$cod)->first();
+
+            $validatedData = $request->validate([
+                'qtite_stock' => 'required|numeric',
+                'stock_critique' => 'required|numeric',
+                'qtite_Acommander' => 'required|numeric',
+                'date_achat' => 'required|date',
+                'date_peremption' => 'required|date',
+                'quantite_ajoute'=>'required|numeric',
+                'quantite_retire'=>'required|numeric',
+            ]);
+
+            $updatemat->update($validatedData);
+
+            return redirect()->route('pagedetailsMateriel',['id'=>$updatemat->id])->with('success', 'The materials has been modified!' );
+
+
+        }
+        catch (ModelNotFoundException $e){
+
+            return redirect()->route('pagedetailsMateriel',['id'=>$updatemat->id])->with('danger', 'Please check your datas. ');
+
+        }
+
+    }
 }

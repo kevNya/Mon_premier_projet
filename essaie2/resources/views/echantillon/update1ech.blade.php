@@ -84,7 +84,7 @@
                     <div class="card-sm mb-1 text-center " >
                         <div style="height: 60px;" class="card-header ">
 
-                            <a href="{{route('page_afficheupdateechFDEZQFDSQSQSQ')}}" class=" text-decoration-none changeupdate">
+                            <a href="{{route('page_afficheupdateech')}}" class=" text-decoration-none changeupdate">
                                 <h2 >Update<i class="fas fa-pencil-alt text-warning center fa-1x dashboard-icon"></i></h2>
 
                             </a>

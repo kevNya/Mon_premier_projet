@@ -5,6 +5,16 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+.blue {
+    color: #1d39f2;
+}
+.bl {
+    color: white;
+    text-decoration: none;
+}
+.bl:hover {
+    color: rgb(11, 241, 214);
+}
 :root {
     --bs-blue: #0d6efd;
     --bs-indigo: #6610f2;
@@ -4878,6 +4888,12 @@ fieldset:disabled .btn {
 .card-link + .card-link {
     margin-left: 1rem;
 }
+.card-header1 {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
 
 .card-header {
     padding: 0.5rem 1rem;
@@ -4885,6 +4901,7 @@ fieldset:disabled .btn {
     background-color: rgba(0, 0, 0, 0.03);
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
+
 .card-header:first-child {
     border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
 }
@@ -11714,3 +11731,283 @@ fieldset:disabled .btn {
     animation: blink 1s infinite; /* 1s pour une seconde, ajustez selon vos besoins */
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.left-box {
+    width: 75%;
+    /* background-color: #4caf50; Couleur de fond verte */
+    padding: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    overflow: auto; /* Permet de scroller si le contenu dépasse */
+}
+
+.right-box {
+    width: 25%;
+    background-color: #bbd2e1; /* Couleur de fond bleue */
+    padding: 20px;
+    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    overflow: auto; /* Permet de scroller si le contenu dépasse */
+    border-radius: 10px;
+}
+.left-box2 {
+    width: 90%;
+    /* background-color: #4caf50; Couleur de fond verte */
+    padding: 20px;
+}
+
+.right-box2 {
+    width: 10%;
+    padding: 5px;
+    border-radius: 10px;
+}
+.left-box3 {
+    width: 15%;
+    /* background-color: #4caf50; Couleur de fond verte */
+    padding: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    overflow: auto; /* Permet de scroller si le contenu dépasse */
+}
+
+.right-box3 {
+    width: 85%;
+    background-color: #bbd2e1; /* Couleur de fond bleue */
+    padding: 20px;
+    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    overflow: auto; /* Permet de scroller si le contenu dépasse */
+}
+.display2 {
+    display: flex;
+}
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Classe de fond avec clignotement */
+.bg-green {
+    background-color: green;
+    color: white;
+    animation: blink 1s infinite; /* Ajout de l'animation clignotante */
+}
+
+.bg-yellow {
+    background-color: yellow;
+    color: black;
+    animation: blink 1s infinite; /* Ajout de l'animation clignotante */
+}
+
+.bg-red {
+    background-color: red;
+    color: white;
+    animation: blink 1s infinite; /* Ajout de l'animation clignotante */
+}
+.status-circle {
+    position: absolute;
+    top: 10px; /* Positionné en haut */
+    right: 10px; /* Positionné à droite */
+    width: 20px; /* Largeur du cercle */
+    height: 20px; /* Hauteur du cercle */
+    border-radius: 50%; /* Forme circulaire */
+    background-color: transparent; /* Invisible par défaut */
+    border: 2px solid transparent; /* Optionnel : bordure transparente */
+    z-index: 10; /* Pour qu'il soit au-dessus des autres éléments */
+}
+.profile-card {
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.photo {
+    flex: 1;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.photo img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.info {
+    flex: 2;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #333;
+}
+
+.info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.info p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*/
+.bod {
+    font-family: "Times New Roman", Times, serif, sans-serif;
+    line-height: 1.6;
+}
+
+.main-section1 {
+    display: flex;
+    width: 95%;
+    margin: 20px auto;
+}
+
+.table-section1 {
+    width: 20%;
+    background-color: #84b6f4;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.table-section1 ul {
+    list-style: none;
+    padding: 0;
+}
+
+.table-section1 ul li {
+    margin-bottom: 10px;
+    border-color: #000;
+}
+
+.table-section1 ul li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.table-section1 ul li a:hover {
+    text-decoration: underline;
+}
+
+.text-section1 {
+    width: 80%;
+    padding: 10px;
+    margin-left: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.content-section1 {
+    display: flex;
+    width: 95%;
+    margin: 20px auto;
+}
+
+.text-left1 {
+    width: 70%;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.image-right1 {
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-right1 img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.centered-text1 {
+    width: 85%;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.carousel1 {
+    width: 900px;
+    height: 300px;
+    margin: 5px auto;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden; /* Masque les éléments en dehors du conteneur */
+    position: relative;
+}
+
+.carousel-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slide {
+    display: flex;
+    width: 300%; /* 100% * nombre d'images */
+    animation: slide 9s infinite;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Animation pour le défilement automatique */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    33.33% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    83.33% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+/* Styles généraux pour les blocs */
+.gray-block {
+    background-color: #0a53be; /* Gris clair */
+    color: #fff; /* Texte en noir */
+    border: 2px solid #fff; /* Bordure blanche */
+    padding: 10px; /* Espacement interne */
+    margin: 1px auto; /* Espacement entre les blocs */
+    width: 95%; /* Largeur des blocs */
+    height: 40px;
+    text-align: center; /* Texte centré */
+    font-family: "Times New Roman", Times, serif, sans-serif; /* Police simple */
+    border-radius: 5px; /* Coins légèrement arrondis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre */
+}

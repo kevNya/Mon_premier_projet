@@ -10,6 +10,7 @@ use App\Http\Controllers\ExamController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PdfResultController;
+use App\Http\Controllers\PersonnelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,7 +52,7 @@ Route::match(['get', 'post'], '/activation_code/{token}', [LoginController::clas
 Route::get('/userchecker', [LoginController::class, 'userchecker'])->name('page_userchecker');
 Route::get('/resendcode/{token}',[LoginController::class, 'resend_code'])->name('page_resendcode');
 Route::get('/rendezvous/create', [RendezVousController::class, 'create'])->name('rendezvous.create');
-Route::post('/rendezvous/store', [RendezVousController::class, 'store'])->name('rendezvous.store');
+Route::post('/rendezvous/store', [RendezVousController::class, 'storee'])->name('rendezvous.store');
 Route::match(['get', 'post'], '/rendezvous/delete', [RendezVousController::class, 'supprimerdv'])
 ->name('page_suppressionrdv');
 Route::match(['get', 'post'], '/rendezvous/delete2', [RendezVousController::class, 'supprimerdv2'])
@@ -104,7 +105,7 @@ Route::match(['get', 'post'], '/Delete_sample', [EchantillonController::class, '
 Route::match(['get', 'post'], '/Delete_sample2', [EchantillonController::class, 'supprimeech'])->name('page_deleteech');
 Route::match(['get', 'post'], '/updatepate', [EchantillonController::class, 'rechByCode'])->name('page_updateech');
 Route::match(['get', 'post'], '/updatepate2', [EchantillonController::class, 'echchanger'])->name('page_updateech2');
-Route::match(['get', 'post'], '/Afficheupdateech', [EchantillonController::class, 'afficheupdateech'])->name('page_afficheupdateechFDEZQFDSQSQSQ');
+Route::match(['get', 'post'], '/Afficheupdateech', [EchantillonController::class, 'afficheupdateech'])->name('page_afficheupdateech');
 
 
 
@@ -140,19 +141,18 @@ Route::match(['get', 'post'], '/updatepate2_result', [ResultController::class, '
 
 
 Route::middleware(['auth','role:admin'])->group (function(){
-
-Route::get('/Leschoix',[AdminController::class,'allusers'])->name('page_leschoix');
-Route::get('/Leschoix2',[AdminController::class,'membres'])->name('page_membres');
-Route::post('/Leschoix3',[AdminController::class,'trienom'])->name('page_trienom');
-Route::match(['get', 'post'],'/Addmember',[AdminController::class,'addmembre'])->name('page_addmembre');
-Route::match(['get', 'post'],'/Member',[AdminController::class,'defmembre'])->name('page_ajoutmembre');
-Route::match(['post','get'],'/Gestion_Role',[AdminController::class,'afficherole'])->name('page_gererrole');
-Route::match(['get', 'post'],'/Role',[AdminController::class,'defrole'])->name('page_ajoutrole');
+    Route::get('/Leschoix',[AdminController::class,'allusers'])->name('page_leschoix');
+    Route::get('/Leschoix2',[AdminController::class,'membres'])->name('page_membres');
+    Route::post('/Leschoix3',[AdminController::class,'trienom'])->name('page_trienom');
+    Route::match(['get', 'post'],'/Addmember',[AdminController::class,'addmembre'])->name('page_addmembre');
+    Route::match(['get', 'post'],'/Member',[AdminController::class,'defmembre'])->name('page_ajoutmembre');
+    Route::match(['post','get'],'/Gestion_Role',[AdminController::class,'afficherole'])->name('page_gererrole');
+    Route::match(['get', 'post'],'/Role',[AdminController::class,'defrole'])->name('page_ajoutrole');
 });
 // Ajoutez d'autres routes selon vos besoins
 
 Route::get('/ex', function () {
-    return view('result.rechpatient');
+    return view('personnel.listepersonnel');
 })->name('page_ex');
 
 Route::match(['get', 'post'],'/pdfrechresult_patient',[PdfResultController::class,'rechresultpatients'])->name('page_rechresult_patient');
@@ -161,5 +161,21 @@ Route::match(['get', 'post'],'/pdfexport',[PdfResultController::class,'pdfexport
 
 
 
+Route::middleware(['auth','role:materiel'])->group (function(){
+    // Route::get('/updateMateriel', function () {
+    //     return view('materiel.updateMateriel');
+    // })->name('pageupdateMateriel');
+    Route::match(['get','post'],'/ensembleMateriel', [PatientController::class,'allmaterials'])->name('pageEnsembleMateriel');
+    // Route::get('/detailsMatos', function () {
+    //     return view('materiel.detailsMateriel');
+    // })->name('pagedetailsMateriel');
+    //Route::match(['get','post'],'/mat', [patientController::class,'voime'])->name('pagel');
+    Route::match(['get','post'],'/updatemateriel/{id}', [PatientController::class,'updateByClick'])->name('pageupdateMateriel');
+    Route::match(['get','post'],'/materiel/{id}', [PatientController::class,'rechByClick'])->name('pagedetailsMateriel');
+    Route::match(['get','post'],'/updateConfirmMateriel', [PatientController::class,'updateMateriel'])->name('pageupdateConfirmMateriel');
+
+});
 
 
+Route::match(['get', 'post'],'/lestaff',[PersonnelController::class,'lestaffcomplet'])->name('page_lestaff');
+Route::match(['get', 'post'],'/detaildustaff/{nomperso}',[PersonnelController::class,'detailsmembrestaff'])->name('page_detailstaff');

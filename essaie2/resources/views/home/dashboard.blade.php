@@ -46,7 +46,7 @@
                 <div class="card">
                     <div class="card-header text-center">
 
-                        <a href="" class=" text-decoration-none changecolore">
+                        <a href="{{route('page_lestaff')}}" class=" text-decoration-none changecolore">
                             <h2>Member of Staff</h2>
                             <i class="fas fa-user fa-5x dashboard-icon"></i>
                         </a>
@@ -76,7 +76,7 @@
                 <div class="card">
                     <div class="card-header text-center">
 
-                        <a href="" class=" text-decoration-none changecolore">
+                        <a href="{{route('pageEnsembleMateriel')}}" class=" text-decoration-none changecolore">
                             <h2>Material Mangement</h2>
                             <i class="fas fa-flask fa-5x dashboard-icon"></i>
                         </a>
@@ -87,6 +87,7 @@
                     </div>
                 </div>
             </div>
+
             @if($userRoles->count() > 0)
                 @php $adminFound = false; @endphp
                 @foreach($userRoles as $role)

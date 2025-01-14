@@ -57,7 +57,7 @@ class RendezVousController extends Controller
 
             $validatedData = $request->validate([
                     'date' => 'required|date',
-                    'heure' => 'required|time',
+                    'heure' => 'required',
 
                     ]);
 
@@ -134,4 +134,54 @@ class RendezVousController extends Controller
         return view('rdv.modifierrdv');
     }
 
+
+    public function indexx()
+    {
+        return response()->json(RendezVous::all());
+    }
+
+    // Récupérer les disponibilités pour une date donnée
+    public function disponibilites(Request $request)
+    {
+        $date = $request->input('date');
+
+    // Générer les horaires entre 08:00 et 17:30 (périodes de 30 minutes)
+        $horaires = collect();
+        for ($hour = 8; $hour <= 17; $hour++) {
+            $horaires->push(sprintf('%02d:00:00', $hour)); // Exemple : 08:00
+            $horaires->push(sprintf('%02d:30:00', $hour)); // Exemple : 08:30
+        }
+
+    // Récupérer les horaires déjà pris dans la base de données
+        $horairesPris = RendezVous::where('date', $date)->pluck('heure');
+
+    // Exclure les horaires pris
+        $horairesDisponibles = $horaires->diff($horairesPris);
+
+        return response()->json($horairesDisponibles->values());
+    }
+
+    // Créer un nouveau rendez-vous
+    public function storee(Request $request)
+    {
+        $validated = $request->validate([
+            'date' => 'required|date',
+            'heure' => 'required|date_format:H:i:s',
+            'nom_patient' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+        ]);
+
+        $existe = RendezVous::where('date', $validated['date'])
+            ->where('heure', $validated['heure'])
+            ->exists();
+
+        if ($existe) {
+            return response()->json(['message' => 'Cet horaire est déjà pris'], 400);
+        }
+
+        $rendezVous = RendezVous::create($validated);
+        return response()->json([
+            'message' => 'Congratulations! You are on our schedule. YOUR CODE IS '. $rendezVous->id,
+            'status' => 'success'
+        ], 200);    }
 }

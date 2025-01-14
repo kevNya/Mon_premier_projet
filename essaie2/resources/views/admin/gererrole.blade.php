@@ -62,7 +62,7 @@
                                                 <option ></option>
                                                 <option value="accueil" >Welcome</option>
                                                 <option value="labo" >Laboratory</option>
-                                                <option value="stock" >Stock manage</option>
+                                                <option value="materiel" >Stock manage</option>
                                                 <option value="assist" >Reception</option>
                                                 <option value="admin" >Admin</option>
 

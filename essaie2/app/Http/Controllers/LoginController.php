@@ -82,7 +82,7 @@ class LoginController extends Controller
                 ->with([
                         'name'=> $name,
                         'activation1_code'=>$acticod,
-                        'activation_token'=>$actitok,
+                        'activation1_token'=>$actitok,
                 ]);//on veut que notre message soit une petite page html avec un peu de css et on va recupérer les valeurs dans le wich
 
 
